@@ -1,7 +1,7 @@
 package com.lsw.pluginlibrary;
 
 /**
- * Created by jianqiang on 17/1/11.
+ * Created by sweeneyliu on 18/11/26.
  */
 public class AppConstants {
     public static final String PROXY_VIEW_ACTION = "com.lsw.hostapp.VIEW";

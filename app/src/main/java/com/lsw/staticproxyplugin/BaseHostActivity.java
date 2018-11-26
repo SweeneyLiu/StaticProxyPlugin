@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.content.res.Resources.Theme;
+import android.util.Log;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -12,6 +13,9 @@ import java.lang.reflect.Method;
 import dalvik.system.DexClassLoader;
 
 public class BaseHostActivity extends Activity {
+
+    private static final String TAG = "BaseHostActivity";
+    
     private AssetManager mAssetManager;
     private Resources mResources;
     private Theme mTheme;
@@ -22,8 +26,10 @@ public class BaseHostActivity extends Activity {
     protected void loadClassLoader() {
         File dexOutputDir = this.getDir("dex", Context.MODE_PRIVATE);
         final String dexOutputPath = dexOutputDir.getAbsolutePath();
+        Log.i(TAG, "lsw--loadClassLoader: dexOutputPath：" + dexOutputPath);
         dexClassLoader = new DexClassLoader(mDexPath,
                 dexOutputPath, null, getClassLoader());
+        Log.i(TAG, "lsw--loadClassLoader: dexClassLoader：" + dexClassLoader.toString());
     }
     protected void loadResources() {
         try {
